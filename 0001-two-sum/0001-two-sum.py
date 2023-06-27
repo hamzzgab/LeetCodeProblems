@@ -5,11 +5,14 @@ class Solution(object):
         :type target: int
         :rtype: List[int]
         """
-        ans = []
-        for i in range(len(nums)):
-            for j in range(i+1):
-                if nums[i] + nums[j] == target and i != j:
-                    ans.append(i)
-                    ans.append(j)
-                    break
-        return ans
+        hashmap = {}
+        indices = []
+        for i, num in enumerate(nums):
+            diff = (target - num) 
+
+            if (target - num) not in hashmap:
+                hashmap[num] = i
+            else:                
+                indices.append(i)
+                indices.append(hashmap[diff])
+                return indices
