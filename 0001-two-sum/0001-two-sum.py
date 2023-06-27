@@ -6,13 +6,10 @@ class Solution(object):
         :rtype: List[int]
         """
         hashmap = {}
-        indices = []
         for i, num in enumerate(nums):
             diff = (target - num) 
 
             if (target - num) not in hashmap:
                 hashmap[num] = i
             else:                
-                indices.append(i)
-                indices.append(hashmap[diff])
-                return indices
+                return [i, hashmap[diff]]
