@@ -6,26 +6,17 @@ class Solution(object):
         :rtype: List[int]
         """
         hash = {}
+        freq = [[] for i in range(len(nums)+1)]
 
-        for i in nums:
-            if i in hash:
-                hash[i] += 1
-            else:
-                hash[i] = 1
+        for num in nums:
+            hash[num] = 1 + hash.get(num, 0)
 
-        print(hash)
+        for c, n in hash.items():
+            freq[n].append(c)
 
-        stopper = 0
-        ans = []
-
-        for val in sorted(hash.values(), reverse=True):
-            value = list(hash.keys())[list(hash.values()).index(val)]
-            hash.pop(value)
-            ans.append(value)
-
-            stopper += 1
-            if stopper == k:
-                break
-
-        return ans
-        
+        res = []
+        for num in range(len(freq) - 1, 0, -1):
+            for n in freq[num]:
+                res.append(n)
+                if len(res) == k:
+                    return res
