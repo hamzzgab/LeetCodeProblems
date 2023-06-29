@@ -1,21 +1,16 @@
+import collections
 class Solution(object):
     def groupAnagrams(self, strs):
         """
         :type strs: List[str]
         :rtype: List[List[str]]
         """
-        ans = []
-        new = {}
-
-        for idx, string in enumerate(strs):
-            val = "".join(sorted(string))
-            if val in new:
-                new[val].append(string)
-            else:
-                new[val] = [string]
-
-        for key in new.keys():
-            ans.append(new[key])
-
-
-        return ans
+        ans = collections.defaultdict(list)
+        
+        for s in strs:
+            count = [0] * 26
+            for c in s:
+                count[(ord(c) - ord('a'))] += 1
+            ans[tuple(count)].append(s)
+        
+        return ans.values()
