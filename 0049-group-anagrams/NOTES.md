@@ -1,4 +1,4 @@
-"""
+```
 ​import collections
 class Solution(object):
     def groupAnagrams(self, strs):
@@ -15,7 +15,7 @@ class Solution(object):
             ans[tuple(count)].append(s)
         
         return ans.values()
-"""
+```
 
 1. Using a collections default dict to avoid any edge cases
 2. Main datastructure used is a hashmap
