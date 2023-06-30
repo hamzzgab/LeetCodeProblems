@@ -23,6 +23,8 @@
                     return res
 ```
 
+`O(n)`
+
 1. Create a frequency the length of the nums array +1
 2. Create a hash map with the count of the num in nums
 3. Insert at index count the value n in the frequency
