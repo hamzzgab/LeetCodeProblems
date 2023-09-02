@@ -4,11 +4,11 @@ class Solution(object):
         :type nums: List[int]
         :rtype: bool
         """
-        hashset = set()
-
-        for n in nums:
-            if n in hashset:
+        
+        hash = {}
+        for i, n in enumerate(nums):
+            if n in hash:
                 return True
-            hashset.add(n)
-
+                break
+            hash[n] = i
         return False
