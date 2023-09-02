@@ -5,11 +5,11 @@ class Solution(object):
         :type target: int
         :rtype: List[int]
         """
-        hashmap = {}
-        for i, num in enumerate(nums):
-            diff = (target - num) 
-
-            if (target - num) not in hashmap:
-                hashmap[num] = i
-            else:                
-                return [i, hashmap[diff]]
+        
+        hash = {}
+        for i, n in enumerate(nums):
+            diff = (target - n)
+            if diff not in hash:
+                hash[n] = i
+            else:
+                return [hash[diff], i]
