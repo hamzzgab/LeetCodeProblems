@@ -5,13 +5,14 @@ class Solution(object):
         :type t: str
         :rtype: bool
         """
-
+        hashS = {}
+        hashT = {}
+        
         if len(s) != len(t):
             return False
         
-        countS, countT = {}, {}
-        for ele in set(s):
-            countS[ele] = s.count(ele)
-            countT[ele] = t.count(ele)
-            
-        return countS == countT
+        for val in t:
+            hashS[val] = s.count(val)
+            hashT[val] = t.count(val)
+        
+        return hashS == hashT
