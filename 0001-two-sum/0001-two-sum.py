@@ -7,9 +7,11 @@ class Solution(object):
         """
         
         hash = {}
-        for i, n in enumerate(nums):
-            diff = (target - n)
-            if diff not in hash:
-                hash[n] = i
+        
+        for idx, num in enumerate(nums):
+            diff = target - num
+            
+            if diff in hash:
+                return [hash[diff], idx]
             else:
-                return [hash[diff], i]
+                hash[num] = idx
