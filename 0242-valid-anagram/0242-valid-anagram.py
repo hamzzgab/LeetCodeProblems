@@ -11,7 +11,7 @@ class Solution(object):
         if len(s) != len(t):
             return False
         
-        for val in t:
+        for val in set(t):
             hashS[val] = s.count(val)
             hashT[val] = t.count(val)
         
