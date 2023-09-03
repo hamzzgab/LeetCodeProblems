@@ -5,12 +5,14 @@ class Solution(object):
         :type strs: List[str]
         :rtype: List[List[str]]
         """
-        ans = collections.defaultdict(list)
         
-        for s in strs:
-            count = [0] * 26
-            for c in s:
-                count[(ord(c) - ord('a'))] += 1
-            ans[tuple(count)].append(s)
+        hash = collections.defaultdict(list)
         
-        return ans.values()
+        for str in strs:
+            count = [0]*26
+            for s in str:
+                count[ord(s)-ord('a')] += 1
+            
+            hash[tuple(count)].append(str)
+            
+        return hash.values()
