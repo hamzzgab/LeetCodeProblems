@@ -5,19 +5,19 @@ class Solution(object):
         :type k: int
         :rtype: List[int]
         """
-
-        hashmap = {}
-        freq = [[] for _ in range(len(nums) + 1)]
-
+        freq = [[] for _ in range(len(nums)+1)]
+        
+        hash = {}
+        
         for num in nums:
-            hashmap[num] = 1 + hashmap.get(num, 0)
-
-        for num, count in hashmap.items():
+            hash[num] = 1 + hash.get(num, 0)
+            
+        for num, count in hash.items():
             freq[count].append(num)
-
+    
         res = []
-        for idx in range(len(freq)-1, -1, -1):
-            for val in freq[idx]:
+        for i in range(len(freq) - 1, 0, -1):
+            for val in freq[i]:
                 res.append(val)
                 if len(res) == k:
                     return res
