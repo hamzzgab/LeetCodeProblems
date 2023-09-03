@@ -4,11 +4,10 @@ class Solution(object):
         :type nums: List[int]
         :rtype: bool
         """
-        
         hash = {}
-        for i, n in enumerate(nums):
-            if n in hash:
+        for idx, num in enumerate(nums):
+            if num in hash:
                 return True
                 break
-            hash[n] = i
+            hash[num] = idx
         return False
