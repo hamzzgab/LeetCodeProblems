@@ -12,7 +12,6 @@ class Solution(object):
         diff = numbers[i] + numbers[j]
 
         if diff == target:
-            print(numbers[i], '+', numbers[j], '=', diff)
             return [i+1, j+1]
         else:
             while diff != target:                
