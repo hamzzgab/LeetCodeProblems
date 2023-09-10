@@ -5,16 +5,15 @@ class Solution(object):
         :type target: int
         :rtype: int
         """
-        beg, end, pos = 0, len(nums) - 1, -1
+        beg, end = 0, len(nums) - 1
         
         while beg <= end:
             mid = (beg + end) // 2
             
-            if nums[mid] == target:
-                pos = mid
-                return pos
-            elif nums[mid] < target:
+            if nums[mid] < target:
                 beg = mid + 1
             elif nums[mid] > target:
                 end = mid - 1
-        return pos
+            else:                
+                return mid
+        return -1
