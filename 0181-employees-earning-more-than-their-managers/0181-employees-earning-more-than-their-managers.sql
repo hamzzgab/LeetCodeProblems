@@ -1,3 +1,5 @@
 # Write your MySQL query statement below
-SELECT e.name as Employee from Employee e
-WHERE e.salary > (SELECT m.salary from Employee as m WHERE m.id = e.managerId)
+SELECT E1.name as Employee from Employee E1
+INNER JOIN Employee E2
+ON E1.managerId = E2.id
+WHERE E1.salary > E2.salary
