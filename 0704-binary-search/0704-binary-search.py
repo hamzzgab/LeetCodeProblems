@@ -8,7 +8,7 @@ class Solution(object):
         beg, end = 0, len(nums) - 1
         
         while beg <= end:
-            mid = (beg + end) // 2
+            mid = beg + ((end - beg) // 2)
             
             if nums[mid] < target:
                 beg = mid + 1
