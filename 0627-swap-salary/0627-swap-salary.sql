@@ -2,6 +2,6 @@
 UPDATE 	Salary 
 SET 	Sex =  CASE  
                         WHEN SEX = 'm' THEN 'f' 
-                        WHEN SEX = 'f' THEN 'm'
+                        ELSE 'm'
                     END 
 WHERE   SEX IN ('m', 'f');
